@@ -45,7 +45,7 @@ Contributions are welcome! If you'd like to contribute to Meteor Escape, please 
 
 ## Credits
 
-Meteor Escape is developed and maintained by [Your Name](https://github.com/ayowee).
+Meteor Escape is developed and maintained by [Ayomal Weerasinghe](https://github.com/ayowee).
 
 ## License
 
