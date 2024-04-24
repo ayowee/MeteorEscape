@@ -1,16 +1,23 @@
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.view.MotionEvent
 import android.view.View
 import com.example.meteorcrusher.GameTask
+import com.example.meteorcrusher.GameViewModel
 import com.example.meteorcrusher.R
 import kotlin.math.abs
 
 @SuppressLint("ViewConstructor")
-class GameView(c: Context, private var gameTask: GameTask) : View(c) {
+class GameView(
+    c: Context,
+    private var gameTask: GameTask,
+    viewModel: GameViewModel,
+    private val sharedPreferences: SharedPreferences
+) : View(c) {
     private var myPaint: Paint? = null
     private var speed = 1
     private var time = 1
@@ -53,7 +60,9 @@ class GameView(c: Context, private var gameTask: GameTask) : View(c) {
 
         d.draw(canvas)
         myPaint!!.color = Color.GREEN
-        var highScore = 0
+
+        // Retrieve high score from SharedPreferences
+        val highScore = sharedPreferences.getInt(PREF_HIGH_SCORE_KEY, 0)
 
         for (i in otherMeteors.indices) {
             try {
@@ -80,8 +89,9 @@ class GameView(c: Context, private var gameTask: GameTask) : View(c) {
                     score++
                     speed = 1 + abs(score / 8)
 
+                    // Update high score if necessary
                     if (score > highScore) {
-                        highScore = score
+                        sharedPreferences.edit().putInt(PREF_HIGH_SCORE_KEY, score).apply()
                     }
                 }
             } catch (e: Exception) {
@@ -93,6 +103,7 @@ class GameView(c: Context, private var gameTask: GameTask) : View(c) {
         myPaint!!.textSize = 40f
         canvas.drawText("Score: $score", 80f, 80f, myPaint!!)
         canvas.drawText("Speed: $speed", 380f, 80f, myPaint!!)
+        canvas.drawText("High Score: $highScore", 680f, 80f, myPaint!!)
         invalidate()
     }
 
@@ -117,5 +128,9 @@ class GameView(c: Context, private var gameTask: GameTask) : View(c) {
             }
         }
         return true
+    }
+
+    companion object {
+        private const val PREF_HIGH_SCORE_KEY = "high_score"
     }
 }

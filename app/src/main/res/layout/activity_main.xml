@@ -10,6 +10,7 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/background"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
@@ -31,7 +32,21 @@
         android:textColor="#9C9A9A"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:layout_margin="20dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/highScoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="1dp"
+        android:layout_marginTop="637dp"
+        android:text="High Score : 0"
+        android:textAlignment="center"
+        android:textColor="#9C9A9A"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/startBtn"
@@ -42,6 +57,19 @@
         android:layout_marginBottom="272dp"
         android:backgroundTint="#00000000"
         android:text="Tap to Start"
+        android:textColor="#FFFFFF"
+        android:letterSpacing="0.2"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/continueBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="272dp"
+        android:backgroundTint="#00000000"
+        android:text="Continue"
         android:textColor="#FFFFFF"
         android:letterSpacing="0.2"
         android:textSize="20sp" />
