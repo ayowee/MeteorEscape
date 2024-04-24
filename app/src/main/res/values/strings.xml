@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Meteor Crusher</string>
+    <string name="todo">TODO</string>
+    <string name="score_0">Score : 0</string>
+    <string name="high_score_0">High Score : 0</string>
+    <string name="tap_to_start">Tap to Start</string>
+    <string name="contgame">Continue</string>
 </resources>

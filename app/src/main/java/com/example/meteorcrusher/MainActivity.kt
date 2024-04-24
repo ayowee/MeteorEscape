@@ -1,6 +1,5 @@
 package com.example.meteorcrusher
 
-import GameView
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity(), GameTask {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var logo: ImageView
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity(), GameTask {
 
         startBtn.setOnClickListener {
             if (!::gameView.isInitialized) {
-                gameView = GameView(this, this, viewModel, sharedPreferences)
+                gameView = GameView(this, this, sharedPreferences)
                 rootLayout.addView(gameView)
             }
             startBtn.visibility = View.GONE
@@ -51,7 +50,7 @@ class MainActivity : AppCompatActivity(), GameTask {
         }
 
         continueBtn.setOnClickListener {
-            gameView = GameView(this, this, viewModel, sharedPreferences)
+            gameView = GameView(this, this, sharedPreferences)
             rootLayout.addView(gameView)
             startBtn.visibility = View.GONE
             scoreTextView.visibility = View.GONE

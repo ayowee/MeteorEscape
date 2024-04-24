@@ -1,3 +1,5 @@
+package com.example.meteorcrusher
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
@@ -6,16 +8,12 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.view.MotionEvent
 import android.view.View
-import com.example.meteorcrusher.GameTask
-import com.example.meteorcrusher.GameViewModel
-import com.example.meteorcrusher.R
 import kotlin.math.abs
 
 @SuppressLint("ViewConstructor")
 class GameView(
     c: Context,
     private var gameTask: GameTask,
-    viewModel: GameViewModel,
     private val sharedPreferences: SharedPreferences
 ) : View(c) {
     private var myPaint: Paint? = null
