@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Meteor Crusher</string>
+    <string name="app_name">Meteor Escape</string>
     <string name="todo">TODO</string>
     <string name="score_0">Score : 0</string>
     <string name="high_score_0">High Score : 0</string>
