@@ -1,5 +1,6 @@
-package com.example.meteorescape
+package com.example.meteorcrusher
 
+import GameView
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
@@ -7,9 +8,8 @@ import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.meteorcrusher.R
 
-class MainActivity : AppCompatActivity(),GameTask {
+class MainActivity : AppCompatActivity(), GameTask {
     private lateinit var rootLayout: RelativeLayout
     private lateinit var startBtn: Button
     private lateinit var mGameView: GameView
