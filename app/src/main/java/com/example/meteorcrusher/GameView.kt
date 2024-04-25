@@ -69,18 +69,24 @@ class GameView(
                 val d2 = resources.getDrawable(R.drawable.meteor, null)
 
                 d2.setBounds(
-                    meteorX,
-                    meteorY,
-                    meteorX + meteorWidth,
-                    meteorY + meteorHeight
+                    meteorX + 25, // Adjusted to center the meteor horizontally
+                    meteorY - meteorHeight, // Adjusted to place the meteor above the screen
+                    meteorX + meteorWidth - 25, // Adjusted to center the meteor horizontally
+                    meteorY // Adjusted to place the meteor above the screen
                 )
 
                 d2.draw(canvas)
                 if (otherMeteors[i]["lane"] as Int == myShipPosition) {
-                    if (meteorY > viewHeight - 2 - meteorHeight && meteorY < viewHeight - 2) {
+                    val shipBottom = viewHeight - 2
+                    val meteorBottom = meteorY + meteorHeight // Adjusted to include the bottom of the meteor
+
+                    // Check if the meteor's bottom edge intersects with the ship's area
+                    if (meteorBottom > shipBottom && meteorY < shipBottom) {
+                        // Collision detected
                         gameTask.closeGame(score)
                     }
                 }
+
 
                 if (meteorY > viewHeight + meteorHeight) {
                     otherMeteors.removeAt(i)
