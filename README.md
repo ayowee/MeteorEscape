@@ -29,7 +29,7 @@ Welcome to Meteor Escape, an exhilarating game where you navigate a spaceship th
 
 ## How to Play
 
-- Swipe on the screen to control the movement of your spaceship.
+- Tap on the required side of screen to control the movement of your spaceship.
 - Dodge incoming meteors and obstacles to stay alive.
 - Survive as long as possible to achieve the highest score.
 
